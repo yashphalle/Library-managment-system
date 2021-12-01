@@ -2,7 +2,9 @@ import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// class bookException extends Exception{
 
+// }
 class Book {
     int IdNo;
     String bookName;
@@ -141,10 +143,16 @@ public class Library2 {
                         System.out.println("copies left = "+b1.copies);
                         break;
                     }
-                    case(4):{
-                        b.copies=b.copies-1;
-                        System.out.println("copies left ="+b.copies);
-                    }
+                    // case(4):{
+                    //     try {
+                    //     b.copies=b.copies-1;
+                    //     System.out.println("copies left ="+b.copies);
+                    //     } catch (Exception e) {
+                    //         //TODO: handle exception
+
+                    //     }
+                        
+                    // }
                 }
             
 
