@@ -7,11 +7,13 @@ class Book {
     int IdNo;
     String bookName;
     String auther;
+    int copies;
 
-    Book(int IdNo, String bookName, String auther) {
+    Book(int IdNo, String bookName, String auther,int copies) {
         this.IdNo = IdNo;
         this.bookName = bookName;
         this.auther = auther;
+        this.copies=copies;
 
     }
 
@@ -32,13 +34,15 @@ class issueBook{
 
 public class Library2 {
     public static void main(String[] args) {
-        Book b1 = new Book(1, "Harry Potter", "Raksha");
-        Book b2 = new Book(2, "The alchemist", "Rushi");
-        Book b3 = new Book(3, "Wings Of Fire", "Dr.A.P.J.kalam");
+
+        Book b1 = new Book(1, "Harry Potter", "J.K. Rowling",5);
+        Book b2 = new Book(2, "The alchemist", " Paulo Coelho",5);
+        Book b3 = new Book(3, "Wings Of Fire", "Dr.A.P.J.kalam",5);
         ArrayList<Book> al = new ArrayList<Book>();
         al.add(b1);
         al.add(b2);
         al.add(b3);
+
         // ArrayList<Issue_Book> al2 = new ArrayList<Issue_Book>();
         ArrayList<issueBook> st1 = new ArrayList<issueBook>();
         ArrayList<issueBook> st2 = new ArrayList<issueBook>();
@@ -54,19 +58,22 @@ public class Library2 {
             int answer = sc.nextInt();
             switch (answer) {
                 case 1: {
+                    System.out.println("Enter the ID: ");
+                    int IdNo = sc.nextInt();
                     System.out.println("Enter the name of book: ");
                     String bookName = sc.next();
                     System.out.println("Enter the auther of book: ");
                     String auther = sc.next();
-                    System.out.println("Enter the ID: ");
-                    int IdNo = sc.nextInt();
-                    Book b = new Book(IdNo, bookName, auther);
+
+                    System.out.println("Enter the No. of copies: ");
+                    int copies = sc.nextInt();
+                    Book b = new Book(IdNo, bookName, auther,copies);
                     al.add(b);
                     break;
                 }
                 case 2:{
                     for (Book b: al) {
-                        System.out.println(b.IdNo+" "+b.bookName +" " + b.auther);
+                        System.out.println(b.IdNo+" "+b.bookName +" " + b.auther+""+b.copies);
                     }
                     System.out.println("__________________Issue book________________________ ");
                     System.out.println("Enter the Student ID: ");
@@ -76,11 +83,72 @@ public class Library2 {
                     System.out.println("Enter the name of book: ");
                     String bookName = sc.next();
                     issueBook i1= new issueBook(tempStId, tempBookId, bookName);
-                    String stId = "st"+tempStId;
+
+                    // String stId = "st"+tempStId;
                    
-                    System.out.println(stId);
-                    // (String(stId)).add(i1);
-                    stId.add(i1);
+                    // System.out.println(stId);
+                    // // (String(stId)).add(i1);
+                    
+                    switch (tempStId) {
+                        case 1:
+                        {
+                            st1.add(i1);
+                            
+                            // for (issueBook i1: st1) {
+                            //     System.out.println(i1.tempStId+" "+i1.tempBookId +" " + i1.bookName);
+                            // }
+                            break;
+                        }
+
+                        case 2:
+                        {
+                            st2.add(i1);
+                                
+                            
+                            // for (issueBook i1: st2) {
+                            //     System.out.println(i1.tempStId+" "+i1.tempBookId +" " + i1.bookName);
+                            // }
+                            break;
+                        }
+                            
+                        case 3:{
+                            st3.add(i1);
+                            // for (issueBook i1: st) {
+                            //     System.out.println(i1.tempStId+" "+i1.tempBookId +" " + i1.bookName);
+                            // }      
+                            break;
+                        }
+                               
+                    
+                        default:
+                            break;
+                    }
+
+
+                    switch(tempBookId){
+                    case(1):{
+                        b1.copies=b1.copies-1;
+                        System.out.println("copies left = "+b1.copies);
+                        break;
+                    }
+                    case(2):{
+                        b2.copies=b2.copies-1;
+                        System.out.println("copies left = "+b1.copies);
+                        break;
+                    }
+                    case(3):{
+                        b3.copies=b3.copies-1;
+                        System.out.println("copies left = "+b1.copies);
+                        break;
+                    }
+                    case(4):{
+                        b.copies=b.copies-1;
+                        System.out.println("copies left ="+b.copies);
+                    }
+                }
+            
+
+                    
 
 
 
@@ -103,11 +171,44 @@ public class Library2 {
                 }
                 break;
                 case 3: {
-                    for (Book b: al) {
-                        System.out.println(b.IdNo+" "+b.bookName +" " + b.auther);
+                    for (Book b:al ) {
+                        System.out.println(b.IdNo+" "+b.bookName +" " + b.auther+""+b.copies);
                     }
+                }
+                case 4:{
+                    System.out.println("__________________Issue book________________________ ");
+                    System.out.println("Enter the Student ID: ");
+                    int tempStId = sc.nextInt();
+                    System.out.println("Enter the ID: ");
+                    int tempBookId = sc.nextInt();
+                    System.out.println("Enter the name of book: ");
+                    String bookName = sc.next();
+
+
+
+
+
+                    switch(tempBookId){
+                        case(1):{
+                            b1.copies=b1.copies+1;
+                            System.out.println("copies left = "+b1.copies);
+                            break;
+                        }
+                        case(2):{
+                            b2.copies=b2.copies+1;
+                            System.out.println("copies left = "+b1.copies);
+                            break;
+                        }
+                        case(3):{
+                            b3.copies=b3.copies+1;
+                            System.out.println("copies left = "+b1.copies);
+                            break;
+                        }
+
+
                 }
             }
         }
     }
+}
 }
