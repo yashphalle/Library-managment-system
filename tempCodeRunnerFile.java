@@ -1,1 +1,1 @@
-b4.setBounds(10,100,100, 40);
+icon.setBounds(0,0,100,100);
