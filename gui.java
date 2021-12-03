@@ -1,15 +1,19 @@
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
+import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import java.awt.*;
 import java.awt.event.*;
+import D:\projects\Library java\Library-managment-system\addbookgui.java;
 
 public class gui {
 
     public static void main(String[] args) {
         JFrame f = new JFrame();
         JLabel lm;
-        ImageIcon icon = new ImageIcon("logo.png");
+        ImageIcon icon = new ImageIcon("left.png");
         JLabel label = new JLabel(icon);
 
         lm = new JLabel("Library Managment System");
@@ -28,8 +32,8 @@ public class gui {
         // label.setIcon(new ImageIcon(new
         // ImageIcon("logo.png").getImage().getScaledInstance(200, 200,
         // Image.SCALE_DEFAULT)));
-        label.setSize(200, 400);
-        label.setLocation(100, 150);
+        // label.setSize(200, 400);
+        // label.setLocation(100, 150);
 
         Font font = new Font("serif", Font.BOLD, 30);
         lm.setFont(font);
@@ -41,15 +45,34 @@ public class gui {
         f.add(label);
         // f.add(label);
         f.pack();
+
+        
         // f.getContentPane().add(new gui("logo.png"))
 
         f.setSize(650, 500);
         f.setLayout(null);
         f.setVisible(true);
+        showFrame();
 
+        b1.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg){
+                f.setVisible(false);
+                JFrame f2=new JFrame();
+                f2.showFrame();
+            }
+
+
+        });
 
       
 
+    }
+
+    private static void showFrame() {
+    }
+
+    private static void showWindow() {
     }
 }
 

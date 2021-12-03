@@ -1,1 +1,2 @@
-icon.setBounds(0,0,100,100);
+        JLabel date =new JLabel("Date Of return :");
+        JTextField tdate=new JTextField();
