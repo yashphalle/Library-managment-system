@@ -8,13 +8,15 @@ public class displaylib {
         JLabel label = new JLabel(icon);
 
         lm = new JLabel("Library Register");
-        String data[][]={ {"101","Amit","670000"},    
-                          {"102","Jai","780000"},    
-                          {"101","Sachin","700000"}};    
-    String column[]={"ID","NAME","SALARY"};         
-    JTable jt=new JTable(data,column);    
-    jt.setBounds(250,100,200,300);          
-    JScrollPane sp=new JScrollPane(jt); 
+        for (int index = 0; index < 4; index++) {
+            {al.get(index).IdNo(), al.get(index).bookName(),al.get(index).author(),al.get(index).copies()}
+            
+        } 
+        String data[][]={ };    
+        String column[]={"Book ID","Book Name","Price","Copies"};         
+        JTable jt=new JTable(data,column);    
+        jt.setBounds(250,100,300,200);          
+        JScrollPane sp=new JScrollPane(jt); 
 
 
 

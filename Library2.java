@@ -10,6 +10,7 @@ class Book {
     String bookName;
     String auther;
     int copies;
+    protected Object bookId;
 
     Book(int IdNo, String bookName, String auther,int copies) {
         this.IdNo = IdNo;
@@ -17,6 +18,10 @@ class Book {
         this.auther = auther;
         this.copies=copies;
 
+    }
+
+    public Object bookId() {
+        return null;
     }
 
 }
@@ -49,8 +54,7 @@ public class Library2 {
         ArrayList<issueBook> st1 = new ArrayList<issueBook>();
         ArrayList<issueBook> st2 = new ArrayList<issueBook>();
         ArrayList<issueBook> st3 = new ArrayList<issueBook>();
-        ArrayList<issueBook> st4 = new ArrayList<issueBook>();
-        ArrayList<issueBook> st5 = new ArrayList<issueBook>();
+
 
 
         Boolean running = true;
@@ -71,6 +75,7 @@ public class Library2 {
                     int copies = sc.nextInt();
                     Book b = new Book(IdNo, bookName, auther,copies);
                     al.add(b);
+                    
                     break;
                 }
                 case 2:{
