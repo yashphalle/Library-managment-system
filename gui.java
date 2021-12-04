@@ -1,13 +1,18 @@
 //import section
 
+<<<<<<< HEAD
 import javax.swing.*;
 
+=======
+import javax.swing.*; //java gui library
+import javax.swing.table.DefaultTableModel; // TableModel interface specifies the methods the JTable will use to interrogate a tabular data model
+>>>>>>> aba267a199606a612a9b0c2e3aea636bdc215397
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent; //The ActionEvent is generated when button is clicked or the item of a list is double clicked.
+import java.awt.event.ActionListener; //ActionListener in Java is a class that is responsible for handling all action events such as when the user clicks on a component.
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.ArrayList; // to use arraylist.
 
 class Book {
     String bookId;
@@ -43,10 +48,20 @@ class Book {
         return price;
     }
 
+<<<<<<< HEAD
+=======
+        Book(int bookId, String bookName, String author, int price, int copies) { //constructor of class Book with arguments.
+            this.bookId = bookId;        // The this is a keyword in Java which is used as a reference to the object of the current class, with in an instance method or a constructor. 
+            this.bookName = bookName;
+            this.author = author;
+            this.price = price;
+            this.copies = copies;
+>>>>>>> aba267a199606a612a9b0c2e3aea636bdc215397
 
 
 }
 
+<<<<<<< HEAD
 class issueBook {
     int tempStId2;
     int tempBookId2;
@@ -56,8 +71,15 @@ class issueBook {
         this.tempStId2 = tempStId2;
         this.tempBookId2 = tempBookId2;
         this.tempdate = tempdate;
+=======
+        issueBook(int tempStId, int tempBookId, String tempdate) {  //constructor of class Issuebook with arguments.
+            this.tempStId = tempStId;
+            this.tempBookId = tempBookId;  // The this is a keyword in Java which is used as a reference to the object of the current class, with in an instance method or a constructor
+            this.tempdate = tempdate;
+>>>>>>> aba267a199606a612a9b0c2e3aea636bdc215397
 
     }
+<<<<<<< HEAD
 }
 
 public class gui{
@@ -70,6 +92,17 @@ public class gui{
         
         ArrayList<Book> al = new ArrayList<Book>();
         al.add(book1);
+=======
+    public class gui { //main class
+
+    public static void main(String[] args) {
+        
+        Book book1 = new Book(1, "Harry Potter", "J.K. Rowling", 550, 5);   //objects of class Book defined with parameters
+        Book book2 = new Book(2, "The alchemist", " Paulo Coelho", 1000, 5);
+        Book book3 = new Book(3, "Wings Of Fire", "Dr.A.P.J.kalam", 700, 5);
+        ArrayList<Book> al = new ArrayList<Book>();   //syntax of arraylist.
+        al.add(book1);  
+>>>>>>> aba267a199606a612a9b0c2e3aea636bdc215397
         al.add(book2);
         al.add(book3);
 
@@ -572,6 +605,10 @@ b4.addActionListener(new ActionListener() {
 
     });
 
+<<<<<<< HEAD
 
 }
 }       
+=======
+    }}
+>>>>>>> aba267a199606a612a9b0c2e3aea636bdc215397
