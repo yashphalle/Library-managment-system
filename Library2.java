@@ -12,7 +12,7 @@ class Book {
     int copies;
     protected Object bookId;
 
-    Book(int IdNo, String bookName, String auther,int copies) {
+    Book(int IdNo, String bookName, String auther,int copies) {    //constructor Book with arguments like id,bookname,author ...
         this.IdNo = IdNo;
         this.bookName = bookName;
         this.auther = auther;
@@ -31,7 +31,7 @@ class issueBook{
     String bookName;
 
 
-    issueBook(int tempStId,int tempBookId,String bookName){
+    issueBook(int tempStId,int tempBookId,String bookName){  //constructor issuebook with some arguments
         this.tempStId = tempStId;
         this.tempBookId=tempBookId;
         this.bookName = bookName; 
@@ -42,11 +42,11 @@ class issueBook{
 public class Library2 {
     public static void main(String[] args) {
 
-        Book b1 = new Book(1, "Harry Potter", "J.K. Rowling",5);
+        Book b1 = new Book(1, "Harry Potter", "J.K. Rowling",5);   //objects of class Book with id,bookname,author,copies
         Book b2 = new Book(2, "The alchemist", " Paulo Coelho",5);
         Book b3 = new Book(3, "Wings Of Fire", "Dr.A.P.J.kalam",5);
-        ArrayList<Book> al = new ArrayList<Book>();
-        al.add(b1);
+        ArrayList<Book> al = new ArrayList<Book>(); //An ArrayList class is a resizable array, which is present in the java. util package. While built-in arrays have a fixed size, ArrayLists can change their size dynamically. Elements can be added and removed from an ArrayList whenever there is a need, helping the user with memory management.
+        al.add(b1);   //here al name of arraylist add is method to append the information stored in object b1 of class Book
         al.add(b2);
         al.add(b3);
 
@@ -62,7 +62,7 @@ public class Library2 {
         while (running) {
             System.out.println("\nEnter 1 for add book in library" + "\nEnter 2 for issue book from library" + "\nEnter 3 for list all books in library" + "\nEnter 4 for return book to library");
             int answer = sc.nextInt();
-            switch (answer) {
+            switch (answer) {   //switch case statements are used to perform library functions.
                 case 1: {
                     System.out.println("Enter the ID: ");
                     int IdNo = sc.nextInt();
@@ -134,7 +134,7 @@ public class Library2 {
 
                     switch(tempBookId){
                     case(1):{
-                        b1.copies=b1.copies-1;
+                        b1.copies=b1.copies-1; //here copies refer to the number of same books present.
                         System.out.println("copies left = "+b1.copies);
                         break;
                     }
