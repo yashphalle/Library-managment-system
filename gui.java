@@ -1,13 +1,13 @@
 //import section
 
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.*; //java gui library
+import javax.swing.table.DefaultTableModel; // TableModel interface specifies the methods the JTable will use to interrogate a tabular data model
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent; //The ActionEvent is generated when button is clicked or the item of a list is double clicked.
+import java.awt.event.ActionListener; //ActionListener in Java is a class that is responsible for handling all action events such as when the user clicks on a component.
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.ArrayList; // to use arraylist.
 
 
 
@@ -18,8 +18,8 @@ import java.util.ArrayList;
         int price;
         int copies;
 
-        Book(int bookId, String bookName, String author, int price, int copies) {
-            this.bookId = bookId;
+        Book(int bookId, String bookName, String author, int price, int copies) { //constructor of class Book with arguments.
+            this.bookId = bookId;        // The this is a keyword in Java which is used as a reference to the object of the current class, with in an instance method or a constructor. 
             this.bookName = bookName;
             this.author = author;
             this.price = price;
@@ -33,22 +33,22 @@ import java.util.ArrayList;
         int tempBookId;
         String tempdate;
 
-        issueBook(int tempStId, int tempBookId, String tempdate) {
+        issueBook(int tempStId, int tempBookId, String tempdate) {  //constructor of class Issuebook with arguments.
             this.tempStId = tempStId;
-            this.tempBookId = tempBookId;
+            this.tempBookId = tempBookId;  // The this is a keyword in Java which is used as a reference to the object of the current class, with in an instance method or a constructor
             this.tempdate = tempdate;
 
         }
     }
-    public class gui {
+    public class gui { //main class
 
     public static void main(String[] args) {
         
-        Book book1 = new Book(1, "Harry Potter", "J.K. Rowling", 550, 5);
+        Book book1 = new Book(1, "Harry Potter", "J.K. Rowling", 550, 5);   //objects of class Book defined with parameters
         Book book2 = new Book(2, "The alchemist", " Paulo Coelho", 1000, 5);
         Book book3 = new Book(3, "Wings Of Fire", "Dr.A.P.J.kalam", 700, 5);
-        ArrayList<Book> al = new ArrayList<Book>();
-        al.add(book1);
+        ArrayList<Book> al = new ArrayList<Book>();   //syntax of arraylist.
+        al.add(book1);  
         al.add(book2);
         al.add(book3);
 
