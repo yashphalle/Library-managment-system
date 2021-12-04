@@ -1,7 +1,7 @@
 //import section
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,44 +9,65 @@ import java.awt.event.ActionListener;
 import java.awt.*;
 import java.util.ArrayList;
 
+class Book {
+    String bookId;
+    String bookName;
+    String author;
+    String price;
+    int copies;
 
-
-    class Book {
-        int bookId;
-        String bookName;
-        String author;
-        int price;
-        int copies;
-
-        Book(int bookId, String bookName, String author, int price, int copies) {
-            this.bookId = bookId;
-            this.bookName = bookName;
-            this.author = author;
-            this.price = price;
-            this.copies = copies;
-
-        }
+    Book(String bookId, String bookName, String author, String price, int copies) {
+        this.bookId = bookId;
+        this.bookName = bookName;
+        this.author = author;
+        this.price = price;
+        this.copies = copies;
 
     }
-    class issueBook {
-        int tempStId;
-        int tempBookId;
-        String tempdate;
+    
+        
 
-        issueBook(int tempStId, int tempBookId, String tempdate) {
-            this.tempStId = tempStId;
-            this.tempBookId = tempBookId;
-            this.tempdate = tempdate;
-
-        }
+    public int getcopies(){
+        return copies;
     }
-    public class gui {
+    public String getbookId(){
+        return bookId;
+    }
+    public String getbookName(){
+        return bookName;
+    }
+    public String getauthor(){
+        return author;
+    }
+    public String getprice(){
+        return price;
+    }
+
+
+
+}
+
+class issueBook {
+    int tempStId2;
+    int tempBookId2;
+    String tempdate;
+
+    issueBook(int tempStId2, int tempBookId2, String tempdate) {
+        this.tempStId2 = tempStId2;
+        this.tempBookId2 = tempBookId2;
+        this.tempdate = tempdate;
+
+    }
+}
+
+public class gui{
 
     public static void main(String[] args) {
         
-        Book book1 = new Book(1, "Harry Potter", "J.K. Rowling", 550, 5);
-        Book book2 = new Book(2, "The alchemist", " Paulo Coelho", 1000, 5);
-        Book book3 = new Book(3, "Wings Of Fire", "Dr.A.P.J.kalam", 700, 5);
+        Book book1 = new Book("1", "Harry Potter", "J.K. Rowling", "550", 5);
+        Book book2 = new Book("2", "The alchemist", " Paulo Coelho", "1000", 5);
+        Book book3 = new Book("3", "Wings Of Fire", "Dr.A.P.J.kalam", "700", 5);
+        
         ArrayList<Book> al = new ArrayList<Book>();
         al.add(book1);
         al.add(book2);
@@ -123,23 +144,22 @@ import java.util.ArrayList;
 
                 bookid = new JLabel("Book Id :");
                 JTextField tbookid = new JTextField();
-                int bookId = parseInt(tbookid.getText());
+
 
                 name = new JLabel("Book Name :");
                 JTextField tname = new JTextField();
-                String bookName = tname.getText();
+                
 
                 aname = new JLabel("Author Name :");
                 JTextField taname = new JTextField();
-                String author = taname.getText();
-
+                
                 mrp = new JLabel("Price :");
                 JTextField tprice = new JTextField();
-                int price =parseInt(tprice.getText());
+                
 
                 stock = new JLabel("No. Of Copies :");
                 JTextField tcopies = new JTextField();
-                int copies = parseInt(tcopies.getText());
+                
 
                 JButton submit = new JButton("Add New Book");
 
@@ -176,9 +196,21 @@ import java.util.ArrayList;
 
                 submit.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        Book b = new Book(bookId, bookName, author, price, copies);
-                        al.add(b);
+                        String bookId = tbookid.getText();
+                        
+                        
+                        String bookName = tname.getText();
+                        
+                        String author = taname.getText();
+                        String price =tprice.getText();
+                        String copies2 = tcopies.getText();
+                        int copies= Integer.parseInt(copies2);
+
+
+                        Book b4 = new Book(bookId, bookName, author, price, copies);
+                        al.add(b4);
                         System.out.println("added succesfully");
+                        System.out.println(b4.getbookId()+"  "+b4.getbookName()+"  "+b4.getauthor()+"  "+b4.getprice()+"  "+b4.getcopies());
 
                         //JOptionPane.showMessageDialog(gui.this,"Book added Succesfully!!");
 
@@ -201,7 +233,8 @@ import java.util.ArrayList;
 
         b2.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
                 
                     JFrame f3 = new JFrame();
                     JLabel lm3;
@@ -213,15 +246,15 @@ import java.util.ArrayList;
             
                     JLabel stId=new JLabel("Student Id :");
                     JTextField tstId=new JTextField();
-                    int tempStId = parseInt(tstId.getText());
+                    
 
                     JLabel bookId =new JLabel("Book Id :");
                     JTextField tbookId=new JTextField();
-                    int tempBookId = parseInt(tbookId.getText());
+                    
 
                     JLabel date =new JLabel("Date to return :");
                     JTextField tdate=new JTextField();
-                    String tempdate = tdate.getText();
+
 
 
                     JButton submit=new JButton("Issue Book");
@@ -274,20 +307,24 @@ import java.util.ArrayList;
 
                     submit.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                            issueBook i1= new issueBook(tempStId, tempBookId, tempdate);
+                            String tempStId = tstId.getText();
+                            int tempStId2=Integer.parseInt(tempStId);
+                            String tempBookId = tbookId.getText();
+                            int tempBookId2=Integer.parseInt(tempBookId);
+                            String tempdate = tdate.getText();
+                            issueBook i1= new issueBook(tempStId2, tempBookId2, tempdate);
+                            System.out.println(tempStId2);
+                            System.out.println(tempBookId2);
 
-                    // String stId = "st"+tempStId;
-                   
-                    // System.out.println(stId);
-                    // // (String(stId)).add(i1);
+                                
                     
-                    switch (tempStId) {
+                    switch (tempStId2) {
                         case 1:
                         {
                             st1.add(i1);
-                            // for (issueBook i1: st2) {
-                            //     System.out.println(i1.tempStId+" "+i1.tempBookId +" " + i1.bookName);
-                            // }
+                            for (issueBook i: st2) {
+                                System.out.println(i.tempStId2+" "+i.tempBookId2 +" " + i.tempdate);
+                            }
 
                             break;
                         }
@@ -297,47 +334,55 @@ import java.util.ArrayList;
                             st2.add(i1);
                                 
                             
-                            // for (issueBook i1: st2) {
-                            //     System.out.println(i1.tempStId+" "+i1.tempBookId +" " + i1.bookName);
-                            // }
+                            for (issueBook i: st2) {
+                                System.out.println(i.tempStId2+" "+i.tempBookId2 +" " + i.tempdate);
+                            }
                             break;
                         }
                             
                         case 3:{
                             st3.add(i1);
-                            // for (issueBook i1: st) {
-                            //     System.out.println(i1.tempStId+" "+i1.tempBookId +" " + i1.bookName);
-                            // }      
+                            for (issueBook i: st2) {
+                                System.out.println(i.tempStId2+" "+i.tempBookId2 +" " + i.tempdate);
+                            }      
                             break;
                         }
                                
                     
-                        default:
+                        default:{
                             break;
+                        }
+                            
                     }
 
+                    int li=al.size(); 
+                    switch(tempBookId2){
+                    case(1):{
+                        book1.copies=book1.copies-1;
+                        System.out.println("copies left = "+book1.copies);
+                        break;
+                    }
+                    case(2):{
+                        book2.copies=book2.copies-1;
+                        System.out.println("copies left = "+book2.copies);
+                        break;
+                    }
+                    case(3):{
+                        book3.copies=book3.copies-1;
+                        System.out.println("copies left = "+book3.copies);
+                        break;
+                    }
+                    case(4):{
+                        if (li>3){
+                            book3.copies=book3.copies-1;
+                            System.out.println("copies left = "+book3.copies);
+                            
 
-                //     switch(tempBookId){
-                //     case(1):{
-                //         b1.copies=b1.copies-1;
-                //         System.out.println("copies left = "+b1.copies);
-                //         break;
-                //     }
-                //     case(2):{
-                //         b2.copies=b2.copies-1;
-                //         System.out.println("copies left = "+b1.copies);
-                //         break;
-                //     }
-                //     case(3):{
-                //         b3.copies=b3.copies-1;
-                //         System.out.println("copies left = "+b1.copies);
-                //         break;
-                //     }
-            
-            
-                  
-            
-                // }
+                        }
+                        break;
+                       
+                    }                              
+                }
                 System.out.println("Issued Succesfully");
 
             }
@@ -347,85 +392,186 @@ import java.util.ArrayList;
             private int parseInt(String text) {
                 return 0;
             }
+    });
+            
+
+            // private int parseInt(String text) {
+            //     return 0;
+            // }
                 
+        
+
+    b3.addActionListener(new ActionListener() {
+
+        public void actionPerformed(ActionEvent e) {
+                    
+
+                JFrame f5 = new JFrame();
+                JLabel lm;
+                ImageIcon icon = new ImageIcon("left.png");
+                JLabel label = new JLabel(icon);
+                lm = new JLabel("List Of Available Books");       
+                JTextField tc1= new JTextField();
+                JTextField tc2= new JTextField();
+                JTextField tc3= new JTextField();
+                JTextField tc4= new JTextField();
+                // Book b = new Book(bookId, bookName, author, price, copies);
+                // for (int i = 0; i < args.length; i++) {
+                //     tc.setText(book.get[i].getbookName());
+               
+
+                // }
+                tc1.setText(book1.getbookId()+"  |  "+book1.getbookName()+" |  "+book1.getauthor()+"  | "+book1.getprice()+"  |  "+book1.getcopies());
+                tc2.setText(book2.getbookId()+"  |  "+book2.getbookName()+" |  "+book2.getauthor()+"  | "+book2.getprice()+"  |  "+book2.getcopies());
+                tc3.setText(book3.getbookId()+"  |  "+book3.getbookName()+" |  "+book3.getauthor()+"  | "+book3.getprice()+"  |  "+book3.getcopies());
+                // tc1.setText(book1.getbookId()+"  |  "+book1.getbookName()+" |  "+book1.getauthor()+"  | "+book1.getprice());
+                    
+                int li=al.size();               
+                System.out.println(li);
+                if (li>3) {
+                    for(Book b:al){
+                        tc4.setText(b.getbookId()+"  |  "+b.getbookName()+" |  "+b.getauthor()+"  | "+b.getprice()+"  |  "+b.getcopies());
+                    }
+                    
+                }
+
+                
+                
+                    
+
+                
+
+
+                
+
+
+
+
+
+                
+
+                tc1.setBounds(200,200,350,50);
+                tc2.setBounds(200,250,350,50);
+                tc3.setBounds(200,300,350,50);
+                tc4.setBounds(200,350,350,50);
+                Font font = new Font("serif", Font.BOLD, 30);
+                lm.setBounds(250,50,400,100);
+                f5.add(tc1);
+                f5.add(tc2);
+                f5.add(tc3);
+                if (li>3) {
+                f5.add(tc4);}
+                lm.setFont(font);
+                f5.add(lm);              
+                f5.add(label);
+                f5.pack();                    
+                f5.setSize(650, 500);
+                f5.setLayout(null);
+                f5.setVisible(true);
+
+                  
+        }
+
+        private int lastIndexOf(ArrayList<Book> al) {
+            return 0;
+        }  
         });
+    
+    
+b4.addActionListener(new ActionListener() {
 
-        b3.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                
-
-        JFrame f5 = new JFrame();
-        JLabel lm;
+    public void actionPerformed(ActionEvent e) {
+        JFrame f4 = new JFrame();
+        JLabel lm3;
         ImageIcon icon = new ImageIcon("left.png");
         JLabel label = new JLabel(icon);
 
-         lm = new JLabel("Library Register");
-        // for (Book b:al) {
-        //     AbstractButton jt;
-        //     jt.setModel(new DefaultTableModel(
-        //     String data[][]= {b.bookId, b.bookName,b.price,b.copies}
-       
-
-        //     String column[]={"Book ID","Book Name","Price","Copies"};
-        //     JTable jt=new JTable(data,column);
-        //     ));
-            
-        
-        
-            
-                
-            
-        // Window jt;
-        // jt.setBounds(250,100,300,200);          
-        // JScrollPane sp=new JScrollPane(jt); 
-
-        // bookId, bookName, author, price, copies
+        lm3 = new JLabel("Return Book");
 
 
-        for (Book b: al) {
-            System.out.println(b.bookId+" | "+b.bookName +" | " + b.author+" | "+b.price+" | "+b.copies);
-        }
-
-        JTextArea r= new JTextArea(50,10);
-        PrintStream printStream = new PrintStream(new CustomOutputStream(textArea));
+        JLabel stId=new JLabel("Student Id :");
+        JTextField tstId=new JTextField();
+        JLabel bookId =new JLabel("Book Id :");
+        JTextField tbookId=new JTextField();
+        JLabel date =new JLabel("Date Of Return :");
+        JTextField tdate=new JTextField();
+        JButton submit=new JButton("Return Book");
         
 
 
 
 
-        r.setText(for (Book b: al) {
-            System.out.println(b.bookId+" | "+b.bookName +" | " + b.author+" | "+b.price+" | "+b.copies);
-        });
+
+        lm3.setBounds(250, 0, 400, 100);
+        stId.setBounds(250, 150, 100, 50);
+        bookId.setBounds(250, 200, 100, 50);
+        date.setBounds(250, 250, 100, 50);
+ 
+        tstId.setBounds(350, 155, 200, 30);
+        tbookId.setBounds(350, 205, 200, 30);
+        tdate.setBounds(350, 255, 200, 30);
+        
+        submit.setBounds(300, 350, 150, 50);
 
 
+        submit.addActionListener(new ActionListener() {
 
-
-        lm.setBounds(150, 0, 450, 100);
-
-
-
-
-
-
-
+            public void actionPerformed(ActionEvent e) {
+                            String tempStId = tstId.getText();
+                            int tempStId2=Integer.parseInt(tempStId);
+                            String tempBookId = tbookId.getText();
+                            int tempBookId2=Integer.parseInt(tempBookId);
+                            String tempdate = tdate.getText();
+                switch(tempBookId2){
+                    case(1):{
+                        book1.copies=book1.copies+1;
+                        System.out.println("copies left = "+book1.copies);
+                        break;
+                    }
+                    case(2):{
+                        book2.copies=book2.copies+1;
+                        System.out.println("copies left = "+book2.copies);
+                        break;
+                    }
+                    case(3):{
+                        book3.copies=book3.copies+1;
+                        System.out.println("copies left = "+book3.copies);
+                        break;
+                    }
+                }
+            }
+            });
 
 
 
         Font font = new Font("serif", Font.BOLD, 30);
-        lm.setFont(font);
-        f5.add(lm);
-        // f5.add(sp);       
-        // f5.add(jt);
-        f5.add(label);
-        f5.add(r);
+        lm3.setFont(font);
 
-        f5.pack();
+        f4.add(lm3);
+        f4.add(stId);
+        f4.add(tstId);        
+        f4.add(bookId);
+        f4.add(tbookId);
+        f4.add(date);
+        f4.add(tdate);
+        f4.add(submit);
+
+
+
+        f4.add(label);
+
+
+
        
-        f5.setSize(650, 500);
-        f5.setLayout(null);
-        f5.setVisible(true);
+
+        f4.pack();
+        f4.setSize(650, 500);
+        f4.setLayout(null);
+        f4.setVisible(true);
     }
+
     });
 
-    }}
+
+}
+}       
