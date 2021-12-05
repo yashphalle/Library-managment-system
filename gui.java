@@ -1,18 +1,10 @@
 //import section
 
-<<<<<<< HEAD
 import javax.swing.*;
-
-=======
-import javax.swing.*; //java gui library
-import javax.swing.table.DefaultTableModel; // TableModel interface specifies the methods the JTable will use to interrogate a tabular data model
->>>>>>> aba267a199606a612a9b0c2e3aea636bdc215397
-
-import java.awt.event.ActionEvent; //The ActionEvent is generated when button is clicked or the item of a list is double clicked.
-import java.awt.event.ActionListener; //ActionListener in Java is a class that is responsible for handling all action events such as when the user clicks on a component.
-
+import java.awt.event.ActionEvent; 
+import java.awt.event.ActionListener; 
 import java.awt.*;
-import java.util.ArrayList; // to use arraylist.
+import java.util.ArrayList; 
 
 class Book {
     String bookId;
@@ -48,20 +40,12 @@ class Book {
         return price;
     }
 
-<<<<<<< HEAD
-=======
-        Book(int bookId, String bookName, String author, int price, int copies) { //constructor of class Book with arguments.
-            this.bookId = bookId;        // The this is a keyword in Java which is used as a reference to the object of the current class, with in an instance method or a constructor. 
-            this.bookName = bookName;
-            this.author = author;
-            this.price = price;
-            this.copies = copies;
->>>>>>> aba267a199606a612a9b0c2e3aea636bdc215397
+
+        
 
 
 }
 
-<<<<<<< HEAD
 class issueBook {
     int tempStId2;
     int tempBookId2;
@@ -71,18 +55,10 @@ class issueBook {
         this.tempStId2 = tempStId2;
         this.tempBookId2 = tempBookId2;
         this.tempdate = tempdate;
-=======
-        issueBook(int tempStId, int tempBookId, String tempdate) {  //constructor of class Issuebook with arguments.
-            this.tempStId = tempStId;
-            this.tempBookId = tempBookId;  // The this is a keyword in Java which is used as a reference to the object of the current class, with in an instance method or a constructor
-            this.tempdate = tempdate;
->>>>>>> aba267a199606a612a9b0c2e3aea636bdc215397
 
-    }
-<<<<<<< HEAD
 }
 
-public class gui{
+public static class gui{
 
     public static void main(String[] args) {
         
@@ -92,19 +68,7 @@ public class gui{
         
         ArrayList<Book> al = new ArrayList<Book>();
         al.add(book1);
-=======
-    public class gui { //main class
 
-    public static void main(String[] args) {
-        
-        Book book1 = new Book(1, "Harry Potter", "J.K. Rowling", 550, 5);   //objects of class Book defined with parameters
-        Book book2 = new Book(2, "The alchemist", " Paulo Coelho", 1000, 5);
-        Book book3 = new Book(3, "Wings Of Fire", "Dr.A.P.J.kalam", 700, 5);
-        ArrayList<Book> al = new ArrayList<Book>();   //syntax of arraylist.
-        al.add(book1);  
->>>>>>> aba267a199606a612a9b0c2e3aea636bdc215397
-        al.add(book2);
-        al.add(book3);
 
         // ArrayList<Issue_Book> al2 = new ArrayList<Issue_Book>();
         ArrayList<issueBook> st1 = new ArrayList<issueBook>();
@@ -263,6 +227,7 @@ public class gui{
 
         });
 
+///////////////////////Issue Book//////////////////////////////
 
         b2.addActionListener(new ActionListener() {
 
@@ -291,7 +256,7 @@ public class gui{
 
 
                     JButton submit=new JButton("Issue Book");
-                    
+                    // JButton back3=new JButton("Back");
             
             
             
@@ -306,7 +271,8 @@ public class gui{
                     tbookId.setBounds(350, 205, 200, 30);
                     tdate.setBounds(350, 255, 200, 30);
                     
-                    submit.setBounds(300, 350, 150, 50);
+                    // back3.setBounds(300, 300, 100, 50);
+                    submit.setBounds(300, 450, 100, 50);
             
             
             
@@ -315,7 +281,7 @@ public class gui{
             
                     Font font = new Font("serif", Font.BOLD, 30);
                     lm3.setFont(font);
-            
+                    
                     f3.add(lm3);
                     f3.add(stId);
                     f3.add(tstId);        
@@ -323,7 +289,9 @@ public class gui{
                     f3.add(tbookId);
                     f3.add(date);
                     f3.add(tdate);
+                    // f3.add(back3);
                     f3.add(submit);
+                    
             
             
             
@@ -355,7 +323,7 @@ public class gui{
                         case 1:
                         {
                             st1.add(i1);
-                            for (issueBook i: st2) {
+                            for (issueBook i: st1) {
                                 System.out.println(i.tempStId2+" "+i.tempBookId2 +" " + i.tempdate);
                             }
 
@@ -375,7 +343,7 @@ public class gui{
                             
                         case 3:{
                             st3.add(i1);
-                            for (issueBook i: st2) {
+                            for (issueBook i: st3) {
                                 System.out.println(i.tempStId2+" "+i.tempBookId2 +" " + i.tempdate);
                             }      
                             break;
@@ -432,7 +400,7 @@ public class gui{
             //     return 0;
             // }
                 
-        
+        //////////////////////////////Display Book//////////////////////////////
 
     b3.addActionListener(new ActionListener() {
 
@@ -443,7 +411,7 @@ public class gui{
                 JLabel lm;
                 ImageIcon icon = new ImageIcon("left.png");
                 JLabel label = new JLabel(icon);
-                lm = new JLabel("List Of Available Books");       
+                lm = new JLabel("Library Register");       
                 JTextField tc1= new JTextField();
                 JTextField tc2= new JTextField();
                 JTextField tc3= new JTextField();
@@ -454,7 +422,7 @@ public class gui{
                
 
                 // }
-                tc1.setText(book1.getbookId()+"  |  "+book1.getbookName()+" |  "+book1.getauthor()+"  | "+book1.getprice()+"  |  "+book1.getcopies());
+                tc1.setText(book1.getbookId()+"  |  "+book1.getbookName()+"   |  "+book1.getauthor()+"  | "+book1.getprice()+"  |  "+book1.getcopies());
                 tc2.setText(book2.getbookId()+"  |  "+book2.getbookName()+" |  "+book2.getauthor()+"  | "+book2.getprice()+"  |  "+book2.getcopies());
                 tc3.setText(book3.getbookId()+"  |  "+book3.getbookName()+" |  "+book3.getauthor()+"  | "+book3.getprice()+"  |  "+book3.getcopies());
                 // tc1.setText(book1.getbookId()+"  |  "+book1.getbookName()+" |  "+book1.getauthor()+"  | "+book1.getprice());
@@ -463,24 +431,14 @@ public class gui{
                 System.out.println(li);
                 if (li>3) {
                     for(Book b:al){
-                        tc4.setText(b.getbookId()+"  |  "+b.getbookName()+" |  "+b.getauthor()+"  | "+b.getprice()+"  |  "+b.getcopies());
+                        tc4.setText(b.getbookId()+"  |  "+b.getbookName()+"  |  "+b.getauthor()+"  |  "+b.getprice()+"  |  "+b.getcopies());
                     }
                     
                 }
 
                 
                 
-                    
-
-                
-
-
-                
-
-
-
-
-
+           
                 
 
                 tc1.setBounds(200,200,350,50);
@@ -510,7 +468,8 @@ public class gui{
         }  
         });
     
-    
+
+///////////Return Book//////////////////////////
 b4.addActionListener(new ActionListener() {
 
     public void actionPerformed(ActionEvent e) {
@@ -593,10 +552,6 @@ b4.addActionListener(new ActionListener() {
 
         f4.add(label);
 
-
-
-       
-
         f4.pack();
         f4.setSize(650, 500);
         f4.setLayout(null);
@@ -605,8 +560,6 @@ b4.addActionListener(new ActionListener() {
 
     });
 
-<<<<<<< HEAD
-
 }
 }       
-    }}
+    }
