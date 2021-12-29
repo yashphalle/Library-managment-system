@@ -416,12 +416,10 @@ public static class gui{
                 JTextField tc2= new JTextField();
                 JTextField tc3= new JTextField();
                 JTextField tc4= new JTextField();
-                // Book b = new Book(bookId, bookName, author, price, copies);
-                // for (int i = 0; i < args.length; i++) {
-                //     tc.setText(book.get[i].getbookName());
+                
                
 
-                // }
+                
                 tc1.setText(book1.getbookId()+"  |  "+book1.getbookName()+"   |  "+book1.getauthor()+"  | "+book1.getprice()+"  |  "+book1.getcopies());
                 tc2.setText(book2.getbookId()+"  |  "+book2.getbookName()+" |  "+book2.getauthor()+"  | "+book2.getprice()+"  |  "+book2.getcopies());
                 tc3.setText(book3.getbookId()+"  |  "+book3.getbookName()+" |  "+book3.getauthor()+"  | "+book3.getprice()+"  |  "+book3.getcopies());
@@ -470,9 +468,11 @@ public static class gui{
     
 
 ///////////Return Book//////////////////////////
+
 b4.addActionListener(new ActionListener() {
 
     public void actionPerformed(ActionEvent e) {
+        
         JFrame f4 = new JFrame();
         JLabel lm3;
         ImageIcon icon = new ImageIcon("left.png");
@@ -489,9 +489,6 @@ b4.addActionListener(new ActionListener() {
         JTextField tdate=new JTextField();
         JButton submit=new JButton("Return Book");
         
-
-
-
 
 
         lm3.setBounds(250, 0, 400, 100);
